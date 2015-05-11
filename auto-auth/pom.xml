@@ -5,17 +5,29 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xiniunet.surrounding</groupId>
-    <artifactId>auth</artifactId>
+    <artifactId>auto-auth</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>AutoAuth</name>
 
     <parent>
         <groupId>com.xiniunet</groupId>
-        <artifactId>framework</artifactId>
-        <version>2.0.0-SNAPSHOT</version>
+        <artifactId>surrounding</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
+    <properties>
+        <java.version>1.7</java.version>
+        <java.encoding>UTF-8</java.encoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+    </dependencies>
 
     <repositories>
         <repository>

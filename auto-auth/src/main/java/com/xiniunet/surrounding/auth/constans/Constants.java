@@ -6,17 +6,24 @@ package com.xiniunet.surrounding.auth.constans;
  * @author 吕浩
  * @since 1.0.0
  */
-public class Constans {
+public class Constants {
     /**
      * 项目路径
      */
     public static String PROJECT_URL;
+
+    /**
+     * 产品代码
+     */
+    public static String PROJECT_CODE;
 
     public static final String CHILD_URL = "/src/main/webapp";
 
     public static final String WEB_INFO_URL = "/src/main/webapp/WEB-INF";
 
     public static final String DEFAULT_WEBX_XML = "/src/main/webapp/WEB-INF/webx.xml";
+
+    public static final String SCREEN_LOCATION = "templates/screen";
 
     /**
      * 白名单文件夹
@@ -35,5 +42,9 @@ public class Constans {
             }
         }
         return false;
+    }
+
+    public static int getPreUrlLength() {
+        return PROJECT_URL.length() + CHILD_URL.length() + 1;
     }
 }

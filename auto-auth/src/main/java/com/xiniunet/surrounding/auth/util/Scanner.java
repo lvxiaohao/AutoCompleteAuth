@@ -9,6 +9,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,13 @@ public class Scanner {
 
     public static void main(String[] args) {
         Constants.PROJECT_URL = "D:\\Workspace\\pm\\erp";
+        Constants.PROJECT_CODE = "com.xiniunet.erp";
         Product product = Scanner.scanProject();
+        try {
+            DictUtil.saveProperties(product.getDict());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -34,6 +41,7 @@ public class Scanner {
         }
 
         Product product = new Product();
+        product.setCode(Constants.PROJECT_CODE);
         String defaultAppName = getDefaultAppName();
         product.setDefaultAppName(defaultAppName);
         List<File> childFolderList = listAppFolder();
@@ -59,7 +67,7 @@ public class Scanner {
     private static List<File> listAppFolder() {
 
         // 列出webapp目录下的所有应用
-        File baseFolder = new File(Constants.PROJECT_URL + Constants.CHILD_URL);
+        File baseFolder = new File(Constants.PROJECT_URL + Constants.FOLDER_APPS);
         if( ! baseFolder.isDirectory()) {
             throw new RuntimeException("项目的路径目标需为项目根文件夹");
         }
@@ -85,7 +93,7 @@ public class Scanner {
     private static List<String> listAppName() {
 
         // 列出所有webx-xxx.xml文件
-        File webInfoFolder = new File(Constants.PROJECT_URL + Constants.WEB_INFO_URL);
+        File webInfoFolder = new File(Constants.PROJECT_URL + Constants.FOLDER_WEB_INFO);
         if( ! webInfoFolder.isDirectory()) {
             throw new RuntimeException("未找到WEB-INF目录");
         }
@@ -108,7 +116,7 @@ public class Scanner {
     }
 
     private static String getDefaultAppName() {
-        File file = new File(Constants.PROJECT_URL + Constants.DEFAULT_WEBX_XML);
+        File file = new File(Constants.PROJECT_URL + Constants.FILE_DEFAULT_WEBX_XML);
         if( ! file.isFile()) {
             throw new RuntimeException("默认webx配置文件不存在");
         }

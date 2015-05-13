@@ -25,11 +25,6 @@ public class Page implements Serializable {
 	private String product;
 
 	/**
-	 * 产品的ID
-	 */
-	private Long productId;
-
-	/**
 	 * 产品的code
 	 */
 	private String productCode;
@@ -38,11 +33,6 @@ public class Page implements Serializable {
 	 * 该页面所属应用名称
 	 */
 	private String application;
-
-	/**
-	 * 应用的ID
-	 */
-	private Long applicationId;
 
 	/**
 	 * 应用的code
@@ -104,22 +94,6 @@ public class Page implements Serializable {
 		this.application = application;
 	}
 
-	public Long getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Long productId) {
-		this.productId = productId;
-	}
-
-	public Long getApplicationId() {
-		return applicationId;
-	}
-
-	public void setApplicationId(Long applicationId) {
-		this.applicationId = applicationId;
-	}
-
 	public String getIdentity() {
 		return identity;
 	}
@@ -158,9 +132,7 @@ public class Page implements Serializable {
 				"url='" + url + '\'' +
 				", description='" + description + '\'' +
 				", product='" + product + '\'' +
-				", productId=" + productId +
 				", application='" + application + '\'' +
-				", applicationId=" + applicationId +
 				", function='" + function + '\'' +
 				", identity='" + identity + '\'' +
 				", record=" + record +

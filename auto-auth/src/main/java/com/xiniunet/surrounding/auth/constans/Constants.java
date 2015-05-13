@@ -17,13 +17,78 @@ public class Constants {
      */
     public static String PROJECT_CODE;
 
-    public static final String CHILD_URL = "/src/main/webapp";
+    /**
+     * 应用所在目录
+     */
+    public static final String FOLDER_APPS = "/src/main/webapp";
+    /**
+     * 配置文件所在目录
+     */
+    public static final String FOLDER_WEB_INFO = FOLDER_APPS + "/WEB-INF";
+    /**
+     * webx.xml配置文件所在目录
+     */
+    public static final String FILE_DEFAULT_WEBX_XML = FOLDER_WEB_INFO + "/webx.xml";
 
-    public static final String WEB_INFO_URL = "/src/main/webapp/WEB-INF";
+    /**
+     * 应用内screen目录的相对路径
+     */
+    public static final String FOLDER_SCREEN_LOCATION = "templates/screen";
+    /**
+     * 应用内报表目录名称
+     */
+    public static final String FOLDER_REPORT_NAME = "report";
+    /**
+     * 应用内设置目录名称
+     */
+    public static final String FOLDER_SETTING_NAME = "setting";
 
-    public static final String DEFAULT_WEBX_XML = "/src/main/webapp/WEB-INF/webx.xml";
 
-    public static final String SCREEN_LOCATION = "templates/screen";
+    public static final Boolean HOME_PAGE_SPECIAL_TREAMENT = true;
+    /**
+     * 公共页面默认身份
+     */
+    public static final String HOME_PAGE_IDENTITY_CODE = "all";
+    /**
+     * 公共页面默认记录规则
+     */
+    public static final Boolean HOME_PAGE_RECORD = false;
+    /**
+     * 公共页面默认功能点
+     */
+    public static final String HOME_PAGE_FUNCTION = "all";
+
+
+    /**
+     * 页面默认身份
+     */
+    public static final String PAGE_IDENTITY_CODE = "employee || none";
+    /**
+     * 页面默认记录规则
+     */
+    public static final Boolean PAGE_RECORD = true;
+
+    /**
+     * index页面是否分配功能点
+     */
+    public static final Boolean PAGE_INDEX_HAS_FUNCTION = false;
+    /**
+     * setting页面是否分配功能点
+     */
+    public static final Boolean PAGE_SETTING_HAS_FUNCTION = false;
+    /**
+     * report页面是否分配功能点
+     */
+    public static final Boolean PAGE_REPORT_HAS_FUNCTION = false;
+
+    /**
+     * 词典文件位置
+     */
+    public static final String DICT_FILE_READ_PATH = "/dict.properties";
+    /**
+     * 生词保存位置
+     */
+    public static final String DICT_FILE_WRITE_PATH = "d:/dict.properties";
 
     /**
      * 白名单文件夹
@@ -44,7 +109,11 @@ public class Constants {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getPreUrlLength() {
-        return PROJECT_URL.length() + CHILD_URL.length() + 1;
+        return PROJECT_URL.length() + FOLDER_APPS.length() + 1;
     }
 }

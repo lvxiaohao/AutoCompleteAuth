@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 应用(模块)对象.每一个web工程均包含至少一个应用.
  * Created on 2015-05-11.
  * AutoCompleteAuth
  *
@@ -19,7 +20,7 @@ public class Application {
      */
     private File file;
     /**
-     * 应用名称
+     * 应用名称(文件夹对应的英文名称)
      */
     private String name;
     /**
@@ -39,6 +40,51 @@ public class Application {
         this.file = rootFile;
         this.name = rootFile.getName();
     }
+
+    /**
+     * 为应用添加一个页面.
+     * @param baseUrl   页面的父目录
+     * @param name      页面的名称
+     * @return          新添加的页面.
+     */
+    public Page addPage(String baseUrl, String name) {
+        if(pageList == null) {
+            pageList = new ArrayList<>();
+        }
+
+        // 拼出当前页面的url
+        StringBuilder url = new StringBuilder();
+
+        // 默认应用的页面,直接进行访问,不需要使用应用名称作为父级目录
+        // 如果不是默认应用的页面,则应该在路径的前面添加应用的名称来访问.
+        if(!this.isDefault()) {
+            url.append(this.getName());
+        }
+
+        if(baseUrl == null || baseUrl.isEmpty()) {
+            // 避免默认应用下的页面路径以"/"开关
+            if(url.length()>0) {
+                url.append("/");
+            }
+        } else {
+            if(!baseUrl.startsWith("/")) {
+                url.append("/");
+            }
+            url.append(baseUrl);
+            if(!baseUrl.endsWith("/")) {
+                url.append("/");
+            }
+        }
+        url.append(name);
+
+        Page page = new Page();
+        // 此时只保存url属性,其余属性在其它地方设置
+        page.setUrl(url.toString());
+        pageList.add(page);
+        return page;
+    }
+
+    // ------ getter && setter ------
 
     public File getFile() {
         return file;
@@ -78,13 +124,5 @@ public class Application {
 
     public void setPageList(List<Page> pageList) {
         this.pageList = pageList;
-    }
-
-    public void addPage(String name) {
-        if(pageList == null) {
-            pageList = new ArrayList<Page>();
-        }
-        // FIXME
-        pageList.add(new Page());
     }
 }

@@ -33,7 +33,12 @@ public class DictUtil {
             dict.addWord(key);
             return key;
         }
-        return o.toString();
+        String s = (String)o;
+        if(s.isEmpty()) {
+            return key;
+        } else {
+            return s;
+        }
     }
 
     public static Properties readProperties() throws IOException {

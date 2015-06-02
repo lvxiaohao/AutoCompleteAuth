@@ -1,6 +1,5 @@
 package com.xiniunet.surrounding.auth.domain;
 
-import com.xiniunet.framework.base.Page;
 import com.xiniunet.surrounding.auth.constans.Constants;
 import com.xiniunet.surrounding.auth.util.DictUtil;
 
@@ -41,6 +40,11 @@ public class Product {
      * 生词字典
      */
     private Dict dict = new Dict();
+
+    /**
+     * 文件树
+     */
+    private FileTree fileTree;
 
 
     /**
@@ -90,7 +94,7 @@ public class Product {
                     page.setProduct(DictUtil.getValue(getDict(), "common.product.name"));
 
                     // 如果当前是默认应用,且设置了默认应用特殊处理
-                    if(application.isDefault() && Constants.HOME_PAGE_SPECIAL_TREAMENT) {
+                    if(application.isDefault() && Constants.HOME_PAGE_SPECIAL_TREATMENT) {
                         page.setFunction(Constants.HOME_PAGE_FUNCTION);
                         page.setRecord(Constants.HOME_PAGE_RECORD);
                         page.setIdentity(Constants.HOME_PAGE_IDENTITY_CODE);
@@ -191,5 +195,13 @@ public class Product {
 
     public void setDict(Dict dict) {
         this.dict = dict;
+    }
+
+    public FileTree getFileTree() {
+        return fileTree;
+    }
+
+    public void setFileTree(FileTree fileTree) {
+        this.fileTree = fileTree;
     }
 }

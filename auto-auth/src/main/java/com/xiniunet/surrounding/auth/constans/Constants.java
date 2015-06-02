@@ -44,7 +44,7 @@ public class Constants {
     public static final String FOLDER_SETTING_NAME = "setting";
 
 
-    public static final Boolean HOME_PAGE_SPECIAL_TREAMENT = true;
+    public static final Boolean HOME_PAGE_SPECIAL_TREATMENT = true;
     /**
      * 公共页面默认身份
      */

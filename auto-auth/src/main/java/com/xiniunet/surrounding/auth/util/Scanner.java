@@ -8,6 +8,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ import static com.xiniunet.surrounding.auth.constans.Constants.isWhiteFolder;
  */
 public class Scanner {
 
-    public static void main(String[] args) {
-        Constants.PROJECT_URL = "D:\\Workspace\\pm\\erp";
+    public static void main(String[] args) throws JAXBException {
+        Constants.PROJECT_URL = "D:\\Workspace\\web-relationship";
         Constants.PROJECT_CODE = "com.xiniunet.erp";
         Product product = Scanner.scanProject();
         try {
@@ -32,6 +33,7 @@ public class Scanner {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        FunctioinUtil.generatePageXml(product);
     }
 
 

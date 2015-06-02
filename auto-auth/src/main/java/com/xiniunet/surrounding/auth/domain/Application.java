@@ -1,7 +1,5 @@
 package com.xiniunet.surrounding.auth.domain;
 
-import com.xiniunet.framework.base.Page;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
